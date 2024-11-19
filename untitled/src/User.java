@@ -1,5 +1,3 @@
-import java.util.jar.Attributes.Name;
-
 public abstract class User {
 
     private String name, surname;
