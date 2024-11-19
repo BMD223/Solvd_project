@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Customer extends User{
-    String accountPasword;
+    private String accountPasword;
 
-    ArrayList<Movie> movies;
+    protected ArrayList<Movie> movies;
 
     public Customer(String name, String surname, String mail, String password){
         super(name,surname,mail);
@@ -25,5 +25,10 @@ public class Customer extends User{
 
     public void removeMovie(Movie movie){
         movies.remove(movie);
+    }
+
+    @Override
+    public String getIdentification() {
+        return this.getName() + " " + this.getSurname();
     }
 }

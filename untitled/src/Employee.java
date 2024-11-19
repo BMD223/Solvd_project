@@ -28,4 +28,9 @@ public class Employee extends User{
             b.BookedTickets.remove(ticketCode);
         }
     }
+    @Override
+    public String getIdentification() {
+        return "Role - Employee, number: " + ID;
+    }
+    
 }

@@ -1,9 +1,11 @@
-public class User {
+import java.util.jar.Attributes.Name;
 
-    private String name, surname, email;
+public abstract class User {
+
+    private String name, surname;
+    protected String email;
 
     public User(){
-
     }
     public User(String name, String surname, String email) {
         this.name = name;
@@ -11,27 +13,51 @@ public class User {
         this.email = email;
     }
 
-    public void setName(String name) {
+    protected void setName(String name) {
         this.name = name;
     }
 
-    public String getName() {
+    protected String getName() {
         return name;
     }
 
-    public void setSurname(String surname) {
+    protected void setSurname(String surname) {
         this.surname = surname;
     }
 
-    public String getSurname() {
+    protected String getSurname() {
         return surname;
     }
 
-    public void setEmail(String email) {
+    protected void setEmail(String email) {
         this.email = email;
     }
 
-    public String getEmail() {
+    protected String getEmail() {
         return email;
+    }
+
+    public abstract String getIdentification();
+
+    @Override
+    public String toString() {
+        return getName()+" "+getSurname();
+    }
+    @Override
+    public int hashCode() {
+        //just email will suffice for now
+        return email.hashCode();
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        User user = (User) obj;
+        //we have to cast this to access email and we know that it isn't going to crash, becuase we already checked if the classes are the same
+        return email != null ? email.equals(user.email) : user.email == null;
     }
 }

@@ -1,7 +1,7 @@
 public class Drinks extends Extras{
 
-    int mililiters;
-    boolean ice;
+    protected int mililiters;
+    protected boolean ice;
 
     public Drinks(String n, double p, int c, Boolean i){
         super(n,p);
@@ -9,5 +9,12 @@ public class Drinks extends Extras{
         ice=i;
 
     }
+
+    @Override
+    void printSize() {
+        System.out.printf("This drink's volume is: %d milliliters.%n", mililiters);
+    }
+
+
 
 }

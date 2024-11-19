@@ -1,6 +1,6 @@
-public class Extras {
-    double price;
-    String name;
+public abstract class Extras {
+    protected double price;
+    protected String name;
     public Extras(String n,double p){
         price=p;
         name=n;
@@ -18,4 +18,6 @@ public class Extras {
         this.price = price;
     }
 
+    abstract void printSize();
+    
 }

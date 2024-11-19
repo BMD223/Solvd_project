@@ -10,9 +10,12 @@ public class Main {
 
         Admin admin = new Admin("Alice","Johnson", "alice.johnson@example.com",1);
 
+        System.out.println(admin.getIdentification());
+        System.out.println(admin.getIdentification("E-MAIL"));
+
         Customer customer = new Customer("John", "Doe", "john.doe@example.com", "password123");
 
-        Movie movie = new Movie("Inception", "Christopher Nolan",13 ,148);
+        Movie movie = new Movie("Inception", "Christopher Nolan",13 ,148,2010);
 
         Date date1 = new Date(2023, 10, 1, 19, 0);
         Date date2 = new Date(2023, 10, 2, 19, 0);
@@ -34,9 +37,11 @@ public class Main {
         Sodas lemonade = new Sodas("SuperLemon",true,"Lemon","Lemonade", 2.99,330,true);
         Drinks water = new Drinks("Water", 1.99,500,false);
 
-        Discount studentDiscount = new Discount("Student Discount", 0.51);
-        Discount seniorDiscount = new Discount("Senior Discount", 0.51);
-        Discount childDiscount = new Discount("Child Discount", 0.20);
+        Map<String,Double> discounts =new HashMap<String,Double>();
+        DiscountRecord dr =new DiscountRecord(discounts);
+        dr.addDiscount("Student Discount", 0.51);
+        dr.addDiscount("Senior Discount", 0.51);
+        dr.addDiscount("Child Discount", 0.20);
 
         Offer offer = new Offer();
         Map<Movie, ArrayList<Date>> screenings = new HashMap<>();
