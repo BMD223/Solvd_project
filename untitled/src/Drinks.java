@@ -11,7 +11,7 @@ public class Drinks extends Extras{
     }
 
     @Override
-    void printSize() {
+    public final void printSize() {
         System.out.printf("This drink's volume is: %d milliliters.%n", mililiters);
     }
 

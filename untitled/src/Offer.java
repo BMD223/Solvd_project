@@ -1,33 +1,40 @@
 import java.util.Date;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Offer {
+    private static Map<Movie, ArrayList<Date>> screenings = new HashMap<>();
+    private static ArrayList<Extras> food = new ArrayList<>();
 
-    Map<Movie, ArrayList<Date>> screenings;
-
-    ArrayList<Extras> food;
-
-    public void setScreenings(Map<Movie, ArrayList<Date>> screenings) {
-        this.screenings = screenings;
+    public static void setScreenings(Map<Movie, ArrayList<Date>> screenings) {
+        Offer.screenings = screenings;
     }
 
-    public Map<Movie, ArrayList<Date>> getScreenings() {
+    public static Map<Movie, ArrayList<Date>> getScreenings() {
         return screenings;
     }
 
-    public void addScreening(Movie movie,ArrayList<Date> dates){
-        screenings.put(movie,dates);
+    public static void addScreening(Movie movie, ArrayList<Date> dates) {
+        screenings.put(movie, dates);
     }
-    public void removeScreening(Movie movie){
+
+    public static void removeScreening(Movie movie) {
         screenings.remove(movie);
     }
 
-    public ArrayList<Extras> getFood() {
+    public static ArrayList<Extras> getFood() {
         return food;
     }
 
-    public void setFood(ArrayList<Extras> food) {
-        this.food = food;
+    public static void setFood(ArrayList<Extras> food) {
+        Offer.food = food;
+    }
+
+    static {
+        // Initialization block
+        System.out.println("Offer class is being initialized...");
+        food = new ArrayList<>();
+        screenings = new HashMap<>();
     }
 }

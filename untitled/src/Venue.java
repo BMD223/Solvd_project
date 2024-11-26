@@ -1,4 +1,4 @@
-public class Venue {
+public class Venue implements Namable{
     int capacity;
     String name;
     String city;

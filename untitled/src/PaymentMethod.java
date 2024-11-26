@@ -1,4 +1,4 @@
-public class PaymentMethod {
+public class PaymentMethod implements Namable{
     String name;
     double fee;
 

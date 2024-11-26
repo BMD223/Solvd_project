@@ -1,4 +1,4 @@
-public class Employee extends User{
+public class Employee extends User implements Identifiable {
     int ID;
 
     public void setID(int ID) {

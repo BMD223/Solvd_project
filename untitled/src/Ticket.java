@@ -1,4 +1,4 @@
-public class Ticket {
+public class Ticket implements Purchasable {
 
     protected String code;
     double price;

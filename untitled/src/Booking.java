@@ -5,6 +5,4 @@ public class Booking {
     ArrayList<String> BookedTickets;
     Showtime st;
 
-
-
 }

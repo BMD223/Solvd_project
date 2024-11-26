@@ -1,4 +1,4 @@
-public abstract class Extras {
+public abstract class Extras implements Consumable, Purchasable, Namable {
     protected double price;
     protected String name;
     public Extras(String n,double p){
@@ -18,6 +18,6 @@ public abstract class Extras {
         this.price = price;
     }
 
-    abstract void printSize();
+    public abstract void printSize();
     
 }
