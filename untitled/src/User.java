@@ -1,4 +1,4 @@
-public abstract class User {
+public abstract class User implements Person {
 
     private String name, surname;
     protected String email;
@@ -9,6 +9,11 @@ public abstract class User {
         this.name = name;
         this.surname = surname;
         this.email = email;
+    }
+
+    @Override
+    public void getGreeting() {
+        System.out.println("Hello, I'm a user!");
     }
 
     protected void setName(String name) {

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Admin extends Employee{
+public final class Admin extends Employee{
     //made a protected constructor which will still work in main, as the package remains the same
     protected Admin(String name, String surname, String email, int id) {
         super(name,surname,email, id);
@@ -9,10 +9,10 @@ public class Admin extends Employee{
 
     void modifyOffer(Offer offer, boolean add, Movie movie, ArrayList<Date> dates){
         if(add){
-            offer.addScreening(movie,dates);
+            Offer.addScreening(movie,dates);
         }
         else{
-            offer.removeScreening(movie);
+            Offer.removeScreening(movie);
         }
     }
     public String getIdentification(String type) {
@@ -29,4 +29,10 @@ public class Admin extends Employee{
     public String getIdentification() {
         return "Role: Administrator, ID: "+ this.getID();
     }
+
+    @Override
+    public void getGreeting() {
+        System.out.println("Hello, I'm the local administrator. I'd be glad to help you!");
+    }
+
 }

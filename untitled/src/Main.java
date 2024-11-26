@@ -43,10 +43,9 @@ public class Main {
         dr.addDiscount("Senior Discount", 0.51);
         dr.addDiscount("Child Discount", 0.20);
 
-        Offer offer = new Offer();
         Map<Movie, ArrayList<Date>> screenings = new HashMap<>();
         screenings.put(movie, showtimes);
-        offer.setScreenings(screenings);
+        Offer.setScreenings(screenings);
 
         ArrayList<Extras> food = new ArrayList<>();
         food.add(popcorn);
@@ -55,7 +54,7 @@ public class Main {
         food.add(cola);
         food.add(lemonade);
         food.add(water);
-        offer.setFood(food);
+        Offer.setFood(food);
 
         System.out.println("Offer created for movie: " + movie.getTitle());
         System.out.println("Showtimes:");

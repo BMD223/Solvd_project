@@ -31,4 +31,8 @@ public class Cashier extends Employee{
         return "Role: Cashier, ID: "+ this.getID();
     }
 
+    @Override
+    public void getGreeting() {
+        System.out.println("Hello, I'm the cashier. How can I help you?");
+    }
 }

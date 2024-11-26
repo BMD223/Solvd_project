@@ -38,7 +38,7 @@ public class Snacks extends Extras{
     }
 
     @Override
-    void printSize() {
+    public void printSize() {
         System.out.printf("This snack's size is: %c .\n", size);
     }
 
