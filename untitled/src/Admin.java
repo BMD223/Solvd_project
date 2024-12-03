@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public final class Admin extends Employee{
     //made a protected constructor which will still work in main, as the package remains the same
@@ -16,7 +17,7 @@ public final class Admin extends Employee{
         }
     }
     public String getIdentification(String type) {
-        if(type =="ID_ONLY"){
+        if(Objects.equals(type, "ID_ONLY")){
             return this.getID() + ""; // we might also just want his id without his role.
         } else if (type=="E-MAIL"){
             return this.getEmail();  //if we need to know the admin's email

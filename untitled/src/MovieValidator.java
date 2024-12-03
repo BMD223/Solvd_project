@@ -13,6 +13,6 @@ public final class MovieValidator {
     }
 
     public static boolean isValidRating(double rating) {
-        return rating >= 0 && rating <= 10;
+        return rating >= 0 && rating <= 18;
     }
 }

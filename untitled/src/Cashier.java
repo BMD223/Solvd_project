@@ -1,3 +1,8 @@
+import CustomExceptions.UnknownProductException;
+import java.util.ArrayList;
+
+import java.util.ArrayList;
+
 public class Cashier extends Employee{
     private double sales=0;
     protected int hoursWorked=0;
@@ -22,8 +27,16 @@ public class Cashier extends Employee{
         this.hoursWorked = hoursWorked;
     }
 
-    public void sellSnacks(double price){
-        sales+=price;
+    public void sellSnacks(double price, String snackName) throws UnknownProductException{
+        ArrayList<Extras> currentOffer = (ArrayList<Extras>) Offer.getFood().clone();
+        for(Extras e : currentOffer){
+            if(e.getName().equals(snackName)){
+                sales+=price;
+                System.out.println("Snack sold!");
+                return;
+            }
+        }
+        throw new UnknownProductException("Snack not found");
     }
 
     @Override

@@ -11,7 +11,8 @@ public class Employee extends User implements Identifiable {
 
     public Employee(String name, String surname, String email, int id) {
         super(name,surname,email);
-        ID=id;  
+        ID=id;
+        EmployeeRecord.employees.add(this);
     }
 
     void addToBookings(String ticketCode,Booking b){

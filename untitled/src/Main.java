@@ -1,10 +1,16 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
+
+    private static final Logger logger = LogManager.getLogger(Main.class);
+
     public static void main(String[] args) {
+        logger.info("Application started.");
 
         Cashier cashier = new Cashier("Jane","Smith", "jane.smith@example.com",1);
 
@@ -37,6 +43,7 @@ public class Main {
         Sodas lemonade = new Sodas("SuperLemon",true,"Lemon","Lemonade", 2.99,330,true);
         Drinks water = new Drinks("Water", 1.99,500,false);
 
+
         Map<String,Double> discounts =new HashMap<String,Double>();
         DiscountRecord dr =new DiscountRecord(discounts);
         dr.addDiscount("Student Discount", 0.51);
@@ -65,5 +72,13 @@ public class Main {
         for (Extras extra : food) {
             System.out.println(" - " + extra.getName() + ": $" + extra.getPrice());
         }
+
+        try (ExampleResource resource = new ExampleResource()) {
+            resource.use();
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        }
+        //try catch with resources as a custom resource implementing Closeable
+        logger.info("Application finished.");
     }
 }

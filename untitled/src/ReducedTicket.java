@@ -1,3 +1,5 @@
+import CustomExceptions.InvalidReasonException;
+
 public class ReducedTicket extends Ticket{
     enum VALID_REASONS{
         STUDENT, SENIOR, CHILD, REFUND
@@ -5,11 +7,19 @@ public class ReducedTicket extends Ticket{
     private String reason;
     Movie movie;
 
-    public ReducedTicket(String code, double price,Movie movie, String reason) {
+    public ReducedTicket(String code, double price,Movie movie, String reason) throws InvalidReasonException {
         this.setCode(code);
         this.setPrice(price);
-        this.reason = reason;
-        this.movie =movie;
+        try {
+            if (reason.toUpperCase().equals(VALID_REASONS.STUDENT.toString()) || reason.toUpperCase().equals(VALID_REASONS.SENIOR.toString()) || reason.toUpperCase().equals(VALID_REASONS.CHILD.toString()) || reason.toUpperCase().equals(VALID_REASONS.REFUND.toString())) {
+                this.reason = reason;
+            } else {
+                throw new InvalidReasonException("Invalid reason");
+            }
+            this.movie = movie;
+        } finally {
+            System.out.println("Ticket created");
+        }
     }
 
     public String getReason() {

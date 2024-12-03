@@ -3,7 +3,7 @@ public class Venue implements Namable{
     String name;
     String city;
 
-    Venue(String name, int capacity,String location) {
+    public Venue(String name, int capacity,String location) {
         this.name = name;
         this.capacity = capacity;
         city=location;
