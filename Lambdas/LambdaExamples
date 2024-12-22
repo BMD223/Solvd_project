@@ -1,0 +1,20 @@
+import java.util.function.*;
+
+public class LambdaExamples {
+    public static void main(String[] args) {
+        Predicate<String> isLongerThan5 = s -> s.length() > 5;
+        System.out.println(isLongerThan5.test("HelloWorld")); // true
+
+        Consumer<String> printUpperCase = s -> System.out.println(s.toUpperCase());
+        printUpperCase.accept("hello"); // HELLO
+
+        Function<Integer, String> intToString = i -> "Number: " + i;
+        System.out.println(intToString.apply(5)); // Number: 5
+
+        Supplier<Double> randomValue = () -> Math.random();
+        System.out.println(randomValue.get()); // Random value
+        
+        BiFunction<Integer, Integer, Integer> add = (a, b) -> a + b;
+        System.out.println(add.apply(5, 3)); // 8
+    }
+}
